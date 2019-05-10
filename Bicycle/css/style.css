@@ -1,0 +1,565 @@
+html,
+body,
+button {
+    margin: 0 auto;
+    padding:0;
+    font-family: 'Arimo', sans-serif;
+    height:100%;
+    background-color: #DBDFDE;
+}
+
+
+
+/* -------------------- Section header  -------------------- */
+
+header {
+    height: 100px;
+    background-color: black;
+    border-bottom: solid 5px #016d78;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Logo 1 */
+header img:first-child {
+    max-height: 100px;
+    margin: 50px;
+}
+
+/* Logo 2 */
+header img:last-child {
+    max-height: 100px;
+    margin: 50px;
+}
+
+@media screen and (max-width: 570px) {
+    /* Logo velib */
+    header img:last-child {
+        display: none;
+    }
+    h1 {
+        font-size: 15px;
+        margin: 15px;
+    }
+
+    header img:first-child {
+        margin: 10px;
+    }
+
+    .text_slide a {
+        margin-left: 22%;
+        margin-top: 55%;
+    }
+
+    #scree {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 667px) {
+
+    #scree {
+        height: 550px;
+    }
+
+    .text_slide a {
+        margin-left: 27%;
+        margin-top: 55%;
+    }
+}
+
+@media screen and (min-width: 571px) and (max-width: 1024px) {
+    .text_slide a {
+        margin-left: 40%;
+        margin-top: 45%;
+    }
+    
+    header img:first-child {
+        display: none;
+}
+
+    header img:last-child {
+    display: none;
+}
+}
+
+
+/* -------------------- Section tutorial ----------------- */
+
+#tutorial {
+    color: #514640;
+    position: relative;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Tutorial titles */
+
+#tutorial h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #514640;
+    margin: 0;
+    padding-top: 50px;
+}
+
+#tutorial h3 {
+    color: white;
+    text-align: center;
+}
+
+#tutorial h3 span {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #ff0404;
+    box-shadow: 1px 1px 12px #555;
+}
+
+/* Slides style */
+
+.fade:first-of-type {
+    display: flex;
+}
+
+.fade {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.fade div {
+    padding: 20px;
+}
+
+.fade img {
+    max-height: 300px;
+}
+
+@media screen and (max-width: 700px) {
+    .fade {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .fade img {
+        max-width: 150px;
+    }
+}
+
+
+/* Fading animation */
+
+.fade,
+.info-station,
+.station-name,
+.station-address,
+.available-bikes,
+.reservation-button,
+.reservation {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2.5s;
+    animation-name: fade;
+    animation-duration: 2.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* Tutorial slider controls */
+
+#tutorial button {
+    background-color: #ff0404;
+    border: solid 2px #d44d02;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 1px 1px 12px #555;
+}
+
+#tutorial button:hover {
+    background-color: #ff0404;
+    cursor: pointer;
+}
+
+#tutorial {
+    bottom: 25px;
+}
+
+.prev {
+    position: absolute;
+    top: 45%;
+}
+
+.next {
+    position: absolute;
+    right: 0;
+    top: 45%;
+}
+
+.stop {
+    position: absolute;
+    left: 45%;
+    bottom: 10px;
+}
+
+.play {
+    position: absolute;
+    right: 45%;
+    bottom: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .stop {
+        left: 10%;
+    }
+    .play {
+        right: 10%;
+    }
+}
+
+
+/* Button info style */
+
+.button_style{
+    margin: 5px 5px 5px 5px;
+    border-radius: 6px;
+    background-color: #ff0404;
+    color: white;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .station_name{
+    color: black;
+  }
+  
+  .station_address{
+    color: black;
+    font-weight : bold;
+  }
+  .station_bike{
+    color: black;
+    font-weight : bold;
+  }
+
+
+/* -------------------- Section map -------------------- */
+
+#carte
+{
+    /* Size of the map */
+    width: 100%; 
+    max-width: 1200px; 
+    height: 600px;
+}
+
+article
+{
+    /* Information pannel, assigned on the left of the screen */
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+#infoStation
+{
+    width: 420px;
+    background-color: #45505b;
+    margin-left: 30px;
+    padding: 10px;
+    display: none;
+}
+
+#infoStation h1
+{
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#listeInfo
+{
+    list-style-type: none;
+    margin: 30px 0;
+}
+
+#listeInfo li
+{
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #EAF8F2;
+}
+
+#listeInfo li + li
+{
+    margin-top: 15px;
+}
+
+#listeInfo span
+{
+    font-size: 1em;
+    line-height: 1.5em;
+    font-weight: 600;
+    color: #66D9EF;
+}
+
+#streetView /* Image of the street view */
+{
+    width: 300px;
+    height: 200px;
+    margin: 10px auto;
+}
+
+#bouttonReservation /* Booking button */
+{
+    width: 130px;
+    height: 40px;
+    margin: 30px auto;
+    box-shadow: 2px 2px 3px #000;
+    border-radius: 6px;
+    transition: all 0.5s;
+}
+
+#bouttonReservation:hover
+{
+    box-shadow: -2px -2px 3px #000;
+}
+
+#bouttonReservation button
+{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#811215, #AD1E22);
+    border: none;
+    box-shadow: inset -1px -1px 10px #181717;
+    color: #EBE9E9;
+    text-shadow: 2px 2px 1px #000;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.5s;
+}
+
+#bouttonReservation button:hover
+{
+    box-shadow: inset 1px 1px 10px #181717;
+    background-image: linear-gradient(#AD1E22, #811215);
+    color: #D6D6D6;
+    text-shadow: -2px -2px 1px #000;
+}
+
+.message
+{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+}
+
+#messageConfirmationLocation, #annulationReservation
+{
+    width: 500px;
+    margin: 20px auto;
+}
+
+/* -------------------- Section canvas -------------------- */
+
+#containerCanvas
+{
+    margin: 20px auto;
+    display: none;
+}
+
+#containerCanvas p
+{
+    text-align: center;
+}
+
+h3 {
+    width: 130px;
+    height: 40px;
+    margin: 30px auto;
+    border-radius: 6px;
+
+}
+
+/* Canvas sign */
+#signature
+{ 
+    display: block;
+    margin: 10px auto 5px auto;
+    border: 1px solid #000;
+    background-color: #45505b;
+    border-radius: 20px;
+}
+
+#signatureVerification
+{
+    display: none;
+}
+
+#boutonCanvas
+{
+    /* Centre and align buttons "Valider" et "Effacer" */
+    display: flex;
+    justify-content: center;
+}
+
+#boutonCanvas button
+{
+    padding: 8px 15px;
+    cursor: pointer;
+    margin: 10px 0;
+    color: white;
+    font-size: 1em;
+}
+
+/* 1st canvas button style */
+#boutonCanvas p:first-child button
+{
+    background-image: linear-gradient(#811215, #AD1E22);
+}
+
+#boutonCanvas p:first-child button:hover
+{
+    background-image: linear-gradient(#AD1E22, #811215);
+}
+
+#boutonCanvas p:first-child span.logoBoutonCanvas
+{
+    color: #00FF40;
+}
+
+/* 2nd canvas button style */
+#boutonCanvas p:last-child button
+{
+    margin-left: 15px;
+    background-image: linear-gradient(#811215, #AD1E22);
+}
+
+#boutonCanvas p:last-child button:hover
+{
+    background-image: linear-gradient(#AD1E22, #811215);
+}
+
+
+#sectionLocation, #messageFinLocation
+{
+    display: none; 
+}
+
+#messageLocation, #messageFinLocation
+{
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* chrono style */
+#compteur
+{ 
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #AD1E22;
+    margin: 20px 0;
+}
+
+
+#messageLocation button
+{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#annulation
+{ 
+    width: 200px;
+    padding: 5px;
+    font-weight: 700;
+}
+
+#annulation:hover
+{
+    box-shadow: 0 0 10px #000;
+    background-color: red;
+}
+
+
+
+@media screen and (max-width: 979px)
+{
+    
+    #diaporama
+    {
+        width: 80%;
+    }
+}
+
+
+
+@media screen and (max-width: 480px)
+{
+    
+    #carte
+    {
+        height: 300px;
+    }
+
+    article
+    {
+        flex-direction: column;
+    }
+
+    #infoStation
+    {
+        width: 94.5%;
+        margin-left: 0;
+    }
+
+    #listeInfo
+    {
+        text-align: center;
+    }
+
+    #streetView
+    {
+        width: 350px;
+        height: 250px;
+    }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Réservation de Vélo'v à Lyon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Retrouvez les différentes stations de Vélo'V à Lyon, le nombre de vélos disponibles, et réservez-en un." />
+    <link rel="shortcut icon" href="velov.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <header>
+            <img src="velov.jpg" alt="logo Velo'v coeur GENERATION">
+            <h1>Réservation de Vélo'v à Lyon</h1>
+            <img src="velov-anniversaire-et.png" alt="Velo'v E.T">
+    </header>
+
+<body>
+
+       
+
+    <!-- Slider -->
+    <section id="tutorial">
+        <div class="container">
+            <h2>Présentation du service</h2>
+            <div class="fade">
+                <div><img src="img/etape1.png" alt="capture écran etape 1">
+                </div>
+                <div>
+                    <h3><span>Etape 1</span></h3>
+                    <p>Des marqueurs indiquent les stations présentes dans un périmètre donné. Les verts indiquent les stations où des vélos sont libres; Les rouges les stations fermées ou sans vélos disponibles.<br/> Zoomer ou cliquer sur un marqueur pour voir la station correspondante.</p>
+                </div>
+            </div>
+            <div class="fade">
+                <div><img src="img/etape2.png" alt="capture écran etape 2">
+                </div>
+                <div>
+                    <h3><span>Etape 2</span></h3>
+                    <p>Cliquer sur une station pour en avoir les détails dans le panneau d'informations à droite (N° et nom de la station, nombre de vélos disponibles)</p>
+                </div>
+            </div>
+            <div class="fade">
+                <div><img src="img/etape3.png" alt="capture écran etape 3">
+                </div>
+                <div>
+                    <h3><span>Etape 3</span></h3>
+                    <p>Dans le panneau d'informations" à droite de la carte, cliquer sur "Réserver" afin d'ouvrir le panneau de réservation en bas de la carte</p>
+                </div>
+            </div>
+            <div class="fade">
+                <div><img src="img/etape4.png" alt="capture écran etape 4">
+                </div>
+                <div>
+                    <h3><span>Etape 4</span></h3>
+                    <p>Saisissez votre nom et votre prénom, signer dans le panneau prévu à cet effet, puis cliquer sur "Valider"</p>
+                </div>
+            </div>
+            <div class="fade">
+                <div><img src="img/etape5.png" alt="capture écran etape 5">
+                </div>
+                <div>
+                    <h3><span>Etape 5</span></h3>
+                    <p>Votre réservation est valable pendant 20min avant confirmation, cliquer sur "Annuler la réservation" pour l'annuler. Si vous décidez de réserver dans une autre station, cela annule automatiquement votre réservation précédente</p>
+                </div>
+            </div>
+        </div>
+        <button class="next">&gt;</button>
+        <button class="prev">&lt;</button>
+        <button class="stop">| |</button>
+        <button class="play">&gt;&gt;</button>
+    </section>
+
+   
+    <section> <!-- Booking -->
+       
+        <article>
+            <div id="carte"></div>
+                <div id="infoStation">
+                    <h1>Informations sur la station :</h1>
+                        
+                        <ul id="listeInfo">
+                            <li>Nom : <span id="nomStation">  </span></li>
+                            <li>État : <span id="etatStation">  </span></li>
+                            <li>Vélos disponibles : <span id="veloDispo">  </span></li>
+                            <li>Points d'attache disponibles : <span id="attacheDispo">  </span></li>
+                        </ul>
+                        
+                        <div id="streetView"></div>
+                            <p id="bouttonReservation"><button>Réserver</button></p>
+                            <p id="messageErreur" class="message">La réservation est impossible à cette station</p>
+                </div>
+        </article>
+
+            <!-- Canvas -->
+            <div id="containerCanvas">
+                    <form class="station_reservation_form">
+                            <h3>Nom    <input type="text" id="nom" name="nom" onchange="localStorage.nom=this.value" required></h3>
+                            <h3>Prénom    <input type="text" id="prenom" name="prenom" onchange="localStorage.prenom=this.value" required></h3>
+                          </form>
+                <p>Vous étes sur le point de réserver un vélo à la station : <strong>  </strong></p>
+                <canvas id="signature" width="380" height="200"></canvas>
+                <canvas id='blank' style='display:none'></canvas>
+                
+                <div id="boutonCanvas">
+                    <p><button id="boutonValider">Valider</button></p>
+                    <p><button id="boutonEffacer">Effacer</button></p> 
+                </div>
+            </div> 
+    </section> 
+
+       
+        <div id="messageConfirmationLocation" class="message">
+            Votre réservation est bien enregistrée
+        </div> 
+       
+        <div id="annulationReservation" class="message">
+            Réservation annulée
+        </div> 
+
+    <section id="sectionLocation">
+        <header>
+            <h1>Location en cours</h1>
+        </header>
+
+            
+            <div id="messageFinLocation">
+                Votre réservation à expirer !
+            </div>
+
+            <div id="messageLocation">
+                <p>Vous venez de réserver 1 vélo à la station : <strong>  </strong><br>
+                Votre réservation expirera dans : <br></p>
+
+                <div id="compteur"></div> 
+                    <p><button id="annulation">Annuler la réservation</button></p>
+            </div>
+
+    </section>
+
+    <footer>
+        
+    </footer>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/markerclusterer.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDVk41SA6oV3dxMvCWfA94XRCxvbbE7g9k&callback=Maps.initMap" async defer></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/reservation.js"></script>
+</body>
+
+</html>
