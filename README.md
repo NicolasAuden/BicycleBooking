@@ -1,3 +1,3 @@
 # BicycleBooking
 
-Réservation de vélos en ligne.
+Projet de réservation de vélos en ligne.
